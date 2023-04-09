@@ -1,0 +1,153 @@
+{% load static %}
+<!doctype html>
+<html lang="en" class="h-100">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Sticky Footer Navbar Template · Bootstrap v5.3</title>
+  <link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static "css/my.css" %}" rel="stylesheet">
+</head>
+
+<body class="d-flex flex-column h-100">
+
+  <header>
+    <!-- Fixed navbar -->
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Fixed navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled">Disabled</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+  </header>
+
+  <!-- Begin page content -->
+    <main class="flex-shrink-0">
+      <div class="container">
+        <h1 class="mt-5">New questions</h1>
+
+        <div class="row">
+          <div class="col-9">
+
+            <div class="question">
+              <div class="row">
+                <div class="col-3">
+                  <div class="question-avatar">
+                    <img src="../static/img/photo.jpeg" alt="avatar">
+                  </div>
+                </div>
+                <div class="col-6">
+                  <h2><a href="#">Awesome question 1</a></h2>
+                  <div class="question-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua...</div>
+                  <div class="row">
+                    <div class="col-4">
+                      Answers (3)
+                    </div>
+                    <div class="col-8">
+                      Tags: <a href="#">black_jack</a>, <a href="#">black_jack</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="question">
+              <div class="row">
+                <div class="col-3">
+                  <div class="question-avatar">
+                    <img src="../static/img/download.jpeg" alt="avatar">
+                  </div>
+                </div>
+                <div class="col-6">
+                  <h2><a href="#">Awesome question 2</a></h2>
+                  <div class="question-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua...</div>
+                  <div class="row">
+                    <div class="col-4">
+                      Answers (3)
+                    </div>
+                    <div class="col-8">
+                      Tags: <a href="#">black_jack</a>, <a href="#">black_jack</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="question">
+              <div class="row">
+                <div class="col-3">
+                  <div class="question-avatar">
+                    <img src="../static/img/images.jpeg" alt="avatar">
+                  </div>
+                </div>
+                <div class="col-6">
+                  <h2><a href="#">Awesome question 3</a></h2>
+                  <div class="question-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua...</div>
+                  <div class="row">
+                    <div class="col-4">
+                      Answers (3)
+                    </div>
+                    <div class="col-8">
+                      Tags: <a href="#">black_jack</a>, <a href="#">black_jack</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-3">Left</div>
+        </div>
+
+        <div>
+          <nav aria-label="Page navigation example">
+            <ul class="pagination">
+              <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+          </nav>
+        </div>
+
+      </div>
+    </main>
+
+    <footer class="footer mt-auto py-3 bg-light">
+      <div class="container">
+        <span class="text-muted">Place sticky footer content here.</span>
+      </div>
+    </footer>
+
+    <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"></script>
+
+</body>
+
+</html>
