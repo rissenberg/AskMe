@@ -1,0 +1,35 @@
+{% load static %}
+
+<div class="question">
+    <div class="row">
+        <div class="col-2">
+            <div>
+                <img class="question-avatar" src="{% static "img/kel.gif" %}" alt="">
+            </div>
+
+            <div>
+                <a href="#" title="Love it" class="love-btn" data-count="0">
+                    <span>&#x2764;</span>
+                </a>
+            </div>
+        </div>
+        <div class="col-8">
+            <h3>
+                <a href="{% url "question" question.id %}"> {{ question.title }} </a>
+            </h3>
+            <div class="question-text">
+                {{ question.text }}
+            </div>
+            <span class="row">
+            <a class="ans-href-with-count" href="{% url "question" question.id %}">answers(5)</a>
+            <span style="width: auto">
+            Tags:
+
+            <a href="tag1">tag1</a>
+            <a href="tag2">tag2</a>
+
+            </span>
+            </span>
+        </div>
+    </div>
+</div>

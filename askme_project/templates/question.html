@@ -1,0 +1,97 @@
+{% extends "inc/base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+<div>
+    <h2 style="display: inline-block; margin: 15px" class="mt-5 index-header">Question </h2>
+</div>
+
+<div class="question">
+    <div class="row">
+        <div class="col-2">
+            <div>
+                <img class="question-avatar" src="{% static "img/kel.gif" %}" alt="">
+            </div>
+
+            <div>
+                <a href="#" title="Love it" class="love-btn" data-count="0">
+                    <span>&#x2764;</span>
+                </a>
+            </div>
+        </div>
+        <div class="col-8">
+            <h3>
+                 {{ question.title }}
+            </h3>
+            <div class="question-text">
+                {{ question.text }}
+            </div>
+            <span class="row">
+            <span style="width: auto">
+            Tags:
+
+            <a href="tag1">tag1</a>
+            <a href="tag2">tag2</a>
+
+            </span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <h2 class="mt-2 mb-3">Answers</h2>
+
+    <div class="question">
+        <div class="row">
+            <div class="col-2">
+                <div>
+                    <img class="question-avatar" src="{% static "img/kel.gif" %}" alt="">
+                </div>
+
+                <div>
+                    <a href="#" title="Love it" class="love-btn" data-count="0">
+                        <span>&#x2764;</span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-8">
+                <h3>Answer</h3>
+                <p> Answer text fejwfoerfoeofneronerofneorfneorf </p>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Correct
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item enabled">
+                <a href="?page=0" class="page-link">Previous</a>
+            </li>
+            <li class="page-item active"><a class="page-link" href="?page=1"> 1 </a></li>
+
+            <li class="page-item enabled">
+                <a href="?page=2" class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
+
+</div>
+
+<div class="row inpAns">
+    <div class="mb-3">
+        <label for="questionTextArea" class="form-label">Your answer</label>
+        <textarea placeholder="Enter your answer here" class="form-control" id="questionTextArea" rows="3"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary col-2 mb-5 btn-answer">Answer</button>
+</div>
+
+{% endblock content %}
