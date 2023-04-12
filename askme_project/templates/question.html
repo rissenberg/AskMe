@@ -23,17 +23,17 @@
         </div>
         <div class="col-8" style="margin-left: 20px;">
             <h3>
-                 {{ question.title }}
+                 Question Title
             </h3>
             <div class="question-text">
-                {{ question.text }}
+                Text of question
             </div>
             <span class="row">
             <span style="width: auto">
             Tags:
 
-            <a href="#">tag1</a>
-            <a href="#">tag2</a>
+            <a href={% url "tag" %}>tag1</a>
+            <a href={% url "tag" %}>tag2</a>
 
             </span>
             </span>
@@ -44,11 +44,11 @@
 <div class="row">
     <h2 class="mt-2 mb-3">Answers</h2>
 
-    {% for answer in answers %}
+    {% for answer in page_obj %}
     {% include "inc/answer_element.html" %}
     {% endfor %}
 
-    {% include "inc/paginator.html" %}
+    {% include "inc/paginator.html" with page=posts %}
 
 </div>
 
@@ -58,7 +58,7 @@
         <textarea placeholder="Enter your answer here" class="form-control" id="questionTextArea" rows="3"></textarea>
     </div>
 
-    <button type="submit" class="btn btn-primary col-2 mb-5 btn-answer">Answer</button>
+    <button type="submit" class="btn btn-primary col-2 mb-5 btn-answer" style="margin-left: 15px">Answer</button>
 </div>
 
 {% endblock content %}

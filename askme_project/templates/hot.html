@@ -5,20 +5,10 @@
     <h2 style="display: inline-block; margin: 15px" class="mt-5 index-header">Hot Questions</h2>
 </div>
 
-{% for question in questions %}
+{% for question in page_obj %}
 {% include "inc/question_element.html" %}
 {% endfor %}
 
-<nav aria-label="Page navigation example">
-    <ul class="pagination justify-content-center">
-        <li class="page-item enabled">
-            <a href="?page=0" class="page-link">Previous</a>
-        </li>
-        <li class="page-item active"><a class="page-link" href="?page=1"> 1 </a></li>
+{% include "inc/paginator.html" with page=posts %}
 
-        <li class="page-item enabled">
-            <a href="?page=2" class="page-link" href="#">Next</a>
-        </li>
-    </ul>
-</nav>
 {% endblock content %}
