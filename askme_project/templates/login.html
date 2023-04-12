@@ -1,0 +1,37 @@
+{% extends "inc/base_min.html" %}
+
+{% block content_min %}
+
+    <div class="row">
+        <h2 style="display: inline-block; margin: 15px" class="mt-5 index-header">Log In</h2>
+        <div style="color: red; margin-left: 15px">Wrong password or login!</div>
+    </div>
+
+    <div class="row" style="margin-top: 30px">
+        <div class="col-1" style="align-self: center; margin-left: 10px">
+            Login
+        </div>
+        <div class="col-4">
+                <textarea placeholder="dr_pepper" class="form-control" id="loginLoginArea" rows="1"></textarea>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 30px">
+        <div class="col-1" style="align-self: center; margin-left: 10px">
+            Password
+        </div>
+        <div class="col-4">
+                <input type="password" placeholder="password" class="form-control" id="loginPasswordArea" minlength="8" required>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 30px; margin-left: 90px">
+        <button type="submit" class="btn  btn-outline-success" style="margin-left: 30px; width: 150px" href={% url "index" %}>Log in</button>
+    </div>
+    <div class="row" style="margin-top: 20px; margin-left: 80px">
+        <a style="margin-left: 30px" href={% url "signin" %}>Create new account</a>
+    </div>
+
+
+
+{% endblock content_min %}

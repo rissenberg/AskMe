@@ -1,0 +1,42 @@
+{% extends "inc/base.html" %}
+
+{% block content %}
+
+    <div class="row">
+        <h2 style="display: inline-block; margin: 15px" class="mt-5 index-header">Ask new Question!</h2>
+    </div>
+
+    <div class="row" style="margin-top: 20px">
+        <div class="col-1" style="align-self: center; margin-left: 10px">
+            Title
+        </div>
+        <div class="col-9">
+                <textarea placeholder="How can I solve it?" class="form-control" id="askTitleArea" rows="1"></textarea>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 20px">
+        <div class="col-1" style="align-self: center; margin-left: 10px">
+            Text
+        </div>
+        <div class="col-9">
+                <textarea placeholder="Tell us more about your problem" class="form-control" id="askTextArea" rows="8"></textarea>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 20px">
+        <div class="col-1" style="align-self: center; margin-left: 10px">
+            Tags
+        </div>
+        <div class="col-9">
+                <textarea placeholder="tag1, tag2, tag3..." class="form-control" id="askTagsArea" rows="1"></textarea>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 20px; margin-left: 5px">
+        <button type="submit" class="btn  btn-outline-success" style="margin-left: 30px; width: 150px" href={% url "index" %}>ASK!</button>
+    </div>
+
+
+
+{% endblock content %}

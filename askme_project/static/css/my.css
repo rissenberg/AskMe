@@ -1,7 +1,25 @@
 main > .container {
-        padding: 60px 15px 0;
+        padding: 80px 15px 0;
     }
-    
+
+    .navbar-logo {
+        height: 80px;
+        width: 80px;
+        object-fit: cover;
+        margin-right: 10px;
+    }
+
+    .navbar-avatar {
+        height: 70px;
+        width: 70px;
+        object-fit: contain;
+        align-content: center;
+    }
+
+    .authorise-section {
+        margin: 15px;
+    }
+
     .question {
         height: 200px;
         border: 2px solid black;
@@ -9,19 +27,19 @@ main > .container {
         padding: 20px;
         margin-bottom: 10px;
     }
-    
+
     .question-avatar {
         height: 150px;
         width: 150px;
     }
-    
+
     .question-avatar > img {
         height: 100%;
         width: 100%;
         object-fit: cover;
         border-radius: 50%;
     }
-    
+
     .question-text {
         margin-bottom: 5%;
     }
@@ -29,4 +47,16 @@ main > .container {
     .love-btn {
         text-align: right;
         text-decoration: none;
+
+    }
+
+    .form-control {
+        background-color: #2b3035;
+    }
+
+    .vk-icon {
+        height: 25px;
+        width: 20px;
+        object-fit: cover;
+        padding-bottom: 5px;
     }

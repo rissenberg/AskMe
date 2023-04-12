@@ -21,7 +21,16 @@ from askme import views
 
 urlpatterns = [
     path('', views.index, name="index"),
+    path('hot/', views.hot, name="hot"),
     path('base/', views.base),
     path('question/<int:question_id>/', views.question, name="question"),
     path('admin/', admin.site.urls),
+    path('404/', views.exception404),
+    path('ask/', views.ask, name="ask"),
+    path('settings/', views.settings, name="settings"),
+    path('login/', views.login, name="login"),
+    path('signin/', views.signin, name="signin"),
 ]
+
+
+handler404 = "askme.views.exception404"
