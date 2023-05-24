@@ -2,13 +2,13 @@
 
 {% block content %}
 <div>
-    <h2 style="display: inline-block; margin: 15px" class="mt-5 index-header">Tag 2</h2>
+    <h2 style="display: inline-block; margin: 15px" class="mt-5 index-header">Questions for tag {{ tag.title }}</h2>
 </div>
 
-{% for question in page_obj %}
-{% include "inc/question_element.html" %}
-{% endfor %}
+{% for question in content %}
+        {% include "inc/question_element_tag.html" %}
+    {% endfor %}
 
-{% include "inc/paginator.html" with page=posts %}
+    {% include 'inc/paginator.html' %}
 
 {% endblock content %}

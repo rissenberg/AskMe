@@ -1,21 +1,38 @@
 {% load static %}
 
-<div class="question">
+<div class="question" style="height: 290px">
     <div class="row">
         <div class="col-2">
-            <div>
-                <img class="question-avatar" src="{% static "img/hero.gif" %}" alt="">
+            <div class="avatar">
+                {% if answer.get_author.avatar %}
+                    <img class="question-avatar" src="{{ answer.get_author.avatar.url }}" alt="">
+                {% else %}
+                    <img class="question-avatar" src="{% static 'img/avatar.png' %}" alt="">
+                {% endif %}
+                <h6 class="name_by_question" style="margin-top: 5px"> By: {{ answer.get_username }}</h6>
+                <h6 class="pub_date">On {{ answer.date }}</h6>
             </div>
 
-            <div>
-                <a href="#" title="Love it" class="love-btn" data-count="0">
-                    <span>&#x2764;  0</span>
-                </a>
-            </div>
+            <button class="counter like_answer" data-id="{{ answer.id }}" style="width: 60px">
+            <span>
+                {% if request.user.is_authenticated %}
+                    {% if request.user.is_authenticated %}
+                        <img src="{% static '/img/blank-heart.svg' %}" style="width: 20px" alt="">
+                    {% else %}
+                        <img src="{% static '/img/red-heart.svg' %}" style="width: 20px" alt="">
+                    {% endif %}
+                {% else %}
+                    <img src="{% static '/img/blank-heart.svg' %}" style="width: 20px" alt="">
+                {% endif %}
+                {{ answer.get_like_count }}</span>
+            </button>
         </div>
-        <div class="col-8" style="margin-left: 20px;">
-            <h3>{{ answer.title }}</h3>
-            <p>{{ answer.text }} </p>
+
+        <div class="col-8" style="margin-left: 10px;">
+            <span>
+            <h3>Answer</h3>
+
+            <p style="height: 150px">{{ answer.text }} </p>
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
                 <label class="form-check-label" for="flexCheckChecked">

@@ -1,22 +1,28 @@
 {% load static %}
+<footer class="mt-auto py-3">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            {% if content.has_previous %}
+                <li class="page-item">
+                    <a class="page-link disabled" href="?page={{ content.previous_page_number }}">Previous</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link disabled" href="?page={{ content.previous_page_number }}">{{ content.previous_page_number }}</a>
+                </li>
+            {% endif %}
 
-<nav aria-label="Page navigation example">
-    <ul class="pagination justify-content-center">
-        {% if page_obj.has_previous %}
-        <li class="page-item enabled">
-            <a href="?page=1" class="page-link">First</a>
-        </li>
-        <li class="page-item enabled">
-            <a href="?page={{ page_obj.previous_page_number }}" class="page-link">Previous</a>
-        </li>
-        {% endif %}
+            <li class="page-item active">
+                <a class="page-link " href="#"> {{ content.number }}</a>
+            </li>
 
-        <li class="page-item active"><a class="page-link" href="#"> {{ page_obj.number }} </a></li>
-
-        {% if page_obj.has_next %}
-        <li class="page-item enabled">
-            <a href="?page={{ page_obj.next_page_number }}" class="page-link" href="#">Next</a>
-        </li>
-        {% endif %}
-    </ul>
-</nav>
+            {% if content.has_next %}
+                <li class="page-item">
+                    <a class="page-link disabled" href="?page={{ content.next_page_number }}">{{ content.next_page_number }}</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link disabled" href="?page={{ content.next_page_number }}">Next</a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+</footer>

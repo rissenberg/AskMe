@@ -8,24 +8,21 @@
 
             </div>
                 <div class="col-3" style="padding-left: 30px">
-                    <!— tags —>
-                    <div class="tags-area mt-5">
-                        <h2 class="mt-5">Tags</h2>
-                        <div class="tags-list">
-                            <a href={% url "tag" %}>tag1</a>
-                            <a href={% url "tag" %}>tag2</a>
-                            <a href={% url "tag" %}>tag3</a>
-                        </div>
+                    <h2 class="mt-5"> Tags </h2>
+                    <div class="tagcontainer">
+                        {% for tag in tags %}
+                           <div class="tag">
+                               <h5><a href ="{% url "tag" tag.title %}"> {{ tag.title }}</a> </h5>
+                           </div>
+                        {% endfor %}
                     </div>
-
-                    <div class="best-members-area mt-5">
-                        <h2 class="mt-5">Best Members</h2>
-                        <div class="best-members-list">
-                            <a href="#">Vasya Pupkin</a>
-                            <a href="#">Владимир Вольфович Жириновский</a>
-                            <a href="#">‏غالية ‏ولي‏واصل‎</a>
-                            <a href="#">Herr Muller</a>
-                        </div>
+                    <div style="margin-top: 200px">
+                        <h2 class="members"> Best Members </h2>
+                        <ul class="members_list">
+                        {% for user in users %}
+                            <li><a class="members_list_item" href="#"> {{user.user.username}}</a></li>
+                        {% endfor %}
+                        </ul>
                     </div>
 
                 </div>

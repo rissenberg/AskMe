@@ -1,64 +1,76 @@
 {% extends "inc/base.html" %}
 {% load static %}
+{% load django_bootstrap5 %}
 
 
 {% block content %}
 
-<div>
-    <h2 style="display: inline-block; margin: 15px" class="mt-5 index-header">Question </h2>
-</div>
+    <div>
+        <h2 style="display: inline-block; margin: 15px" class="mt-5 index-header">Question </h2>
+    </div>
 
-<div class="question">
+    <div class="question" style="height: 290px">
+        <div class="row">
+            <div class="col-2">
+                <div class="avatar">
+                    {% if question.get_author.avatar %}
+                        <img class="question-avatar" src="{{ MEDIA_URL }}{{ question.get_author.avatar.url }}" alt="">
+                    {% else %}
+                        <img class="question-avatar" src="{% static 'img/avatar.png' %}" alt="">
+                    {% endif %}
+                    <h6 class="name_by_question" style="margin-top: 5px">By: {{ question.get_username }}</h6>
+                    <h6 class="pub_date">On {{ question.date }}</h6>
+                </div>
+
+                <button class="counter like_question" data-id="{{ question.id }}" style="width: 60px">
+                    {% if request.user.is_authenticated %}
+                        {% if request.user.is_authenticated %}
+                             <img src="{% static '/img/blank-heart.svg' %}" style="width: 20px" alt="">
+                        {% else %}
+                            <img src="{% static '/img/red-heart.svg' %}" style="width: 20px" alt="">
+                        {% endif %}
+                    {% else %}
+                            <img src="{% static '/img/blank-heart.svg' %}" style="width: 20px" alt="">
+                    {% endif %}
+                    <span>{{ question.get_like_count }}</span>
+                </button>
+            </div>
+            <div class="col-8" style="margin-left: 20px;">
+                <h3>
+                    <h3> {{ question.title }} </h3>
+                </h3>
+                <div class="question-text" style="height: 130px">
+                    {{ question.text }}
+                </div>
+                <span class="row">
+                    <div> <span class="header-green tags_title">Tags:
+                        {% for tag in question.get_tags %}
+                            <a class="tag_in_question" href="{% url "tag" tag.title %}" style="margin-right: 5px">{{ tag.title }}</a>
+                        {% endfor %}
+                    </span>
+                    </div>
+                </span>
+            </div>
+        </div>
+    </div>
+
     <div class="row">
-        <div class="col-2">
-            <div>
-                <img class="question-avatar" src="{% static "img/kel.gif" %}" alt="">
-            </div>
+        <h2 class="mt-2 mb-3">Answers</h2>
 
-            <div>
-                <a href="#" title="Love it" class="love-btn" data-count="0">
-                    <span>&#x2764;  0</span>
-                </a>
-            </div>
-        </div>
-        <div class="col-8" style="margin-left: 20px;">
-            <h3>
-                 Question Title
-            </h3>
-            <div class="question-text">
-                Text of question
-            </div>
-            <span class="row">
-            <span style="width: auto">
-            Tags:
+        {% for answer in content %}
+            {% include "inc/answer_element.html" %}
+        {% endfor %}
 
-            <a href={% url "tag" %}>tag1</a>
-            <a href={% url "tag" %}>tag2</a>
+        {% include 'inc/paginator.html' %}
 
-            </span>
-            </span>
-        </div>
-    </div>
-</div>
-
-<div class="row">
-    <h2 class="mt-2 mb-3">Answers</h2>
-
-    {% for answer in page_obj %}
-    {% include "inc/answer_element.html" %}
-    {% endfor %}
-
-    {% include "inc/paginator.html" with page=posts %}
-
-</div>
-
-<div class="row inpAns">
-    <div class="mb-3">
-        <label for="questionTextArea" class="form-label">Your answer</label>
-        <textarea placeholder="Enter your answer here" class="form-control" id="questionTextArea" rows="3"></textarea>
     </div>
 
-    <button type="submit" class="btn btn-primary col-2 mb-5 btn-answer" style="margin-left: 15px">Answer</button>
-</div>
+    <form action="{% url 'question' question.id %}" method="post">
+        <div class="form-group green-border-focus mt-5">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <button type="submit" class="btn btn-outline-success mb-5" id="submit_answer_button">Answer</button>
+        </div>
+    </form>
 
 {% endblock content %}

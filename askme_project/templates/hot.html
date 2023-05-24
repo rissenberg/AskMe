@@ -5,10 +5,10 @@
     <h2 style="display: inline-block; margin: 15px" class="mt-5 index-header">Hot Questions</h2>
 </div>
 
-{% for question in page_obj %}
-{% include "inc/question_element.html" %}
+{% for post in content %}
+    {% include "inc/question_element.html" %}
 {% endfor %}
 
-{% include "inc/paginator.html" with page=posts %}
+{% include 'inc/paginator.html' %}
 
 {% endblock content %}

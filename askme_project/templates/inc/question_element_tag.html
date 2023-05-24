@@ -4,15 +4,15 @@
     <div class="row">
         <div class="col-2">
             <div class="avatar">
-                {% if post.get_author.avatar %}
-                    <img class="question-avatar" src="{{ MEDIA_URL }}{{ post.get_author.avatar.url }}" alt="">
+                {% if question.get_author.avatar %}
+                    <img class="question-avatar" src="{{ MEDIA_URL }}{{ question.get_author.avatar.url }}" alt="">
                 {% else %}
                     <img class="question-avatar" src="{% static 'img/avatar.png' %}" alt="">
                 {% endif %}
-                <h6 class="name_by_question" style="margin-top: 10px"> By: {{ post.get_username }}</h6>
+                <h6 class="name_by_question" style="margin-top: 10px"> By: {{ question.get_username }}</h6>
             </div>
 
-            <button class="counter like_question" data-id="{{ post.id }}" style="width: 60px">
+            <button class="counter like_question" data-id="{{ question.id }}" style="width: 60px">
                 <span>
                     {% if request.user.is_authenticated %}
                         {% if request.user.is_authenticated %}
@@ -28,15 +28,15 @@
         </div>
         <div class="col-8" style="margin-left: 20px;">
             <h3>
-                <a href="{% url "question" post.id %}"> {{ post.title }} </a>
+                <a href="{% url "question" question.id %}"> {{ question.title }} </a>
             </h3>
             <div class="question-text">
-                {{ post.text }}
+                {{ question.text }}
             </div>
             <span class="row">
-            <a class="ans-href-with-count" href="{% url "question" post.id %}">answers</a>
+            <a class="ans-href-with-count" href="{% url "question" question.id %}">answers</a>
                     <div> <span class="header-green tags_title">Tags:
-                        {% for tag in post.get_tags %}
+                        {% for tag in question.get_tags %}
                             <a class="tag_in_question" href="{% url "tag" tag.title %}" style="margin-right: 5px">{{ tag.title }}</a>
                         {% endfor %}
                     </span>

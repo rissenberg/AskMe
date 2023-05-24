@@ -1,73 +1,28 @@
 {% extends "inc/base_min.html" %}
+{% load django_bootstrap5 %}
 
 {% block content_min %}
 
-    <div class="row">
-        <h2 style="display: inline-block; margin: 15px" class="mt-5 index-header">Registration</h2>
-        <div style="color: red; margin-left: 15px">Sorry, this Email is already signed</div>
-        <div style="color: red; margin-left: 15px">Sorry, your password is too short</div>
-        <div style="color: red; margin-left: 15px">Sorry, passwords do not match</div>
+    <div class="card sign-in" style="margin-left: 100px; margin-right: 100px; margin-top: 50px">
+        <article class="card-body">
+
+            <h4 class="card-title mb-4 mt-1">Registration</h4>
+            <small class="form-text text-muted">Quick registration will allow you to ask questions and answer other users</small>
+            <form action="/register/" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    {% csrf_token %}
+                   {% bootstrap_form form %}
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block"> Register</button>
+                </div> <!-- form-group// -->
+
+                <div>
+                    <div class="mt-5">Already have an account?</div>
+                    <div><a href="{% url "login_page" %}">Sign in</a></div>
+                </div>
+            </form>
+        </article>
     </div>
-
-    <div class="row" style="margin-top: 20px">
-        <div class="col-1" style="align-self: center; margin-left: 10px">
-            Login
-        </div>
-        <div class="col-6">
-                <textarea placeholder="dr_pepper" class="form-control" id="signinLoginArea" rows="1"></textarea>
-        </div>
-    </div>
-
-    <div class="row" style="margin-top: 20px">
-        <div class="col-1" style="align-self: center; margin-left: 10px">
-            Email
-        </div>
-        <div class="col-6">
-                <input type="email" placeholder="dr_pepper@mail.com" class="form-control" id="signinEmailArea" rows="1"></input>
-        </div>
-    </div>
-
-    <div class="row" style="margin-top: 20px">
-        <div class="col-1" style="align-self: center; margin-left: 10px">
-            Nickname
-        </div>
-        <div class="col-6">
-                <textarea placeholder="Dr Pepper" class="form-control" id="signinNicknameArea" rows="1"></textarea>
-        </div>
-    </div>
-
-    <div class="row" style="margin-top: 30px">
-        <div class="col-1" style="align-self: center; margin-left: 10px">
-            Password
-        </div>
-        <div class="col-6">
-                <input type="password" placeholder="password" class="form-control" id="signinPasswordArea" minlength="8" required>
-        </div>
-    </div>
-
-    <div class="row" style="margin-top: 30px">
-        <div class="col-1" style="align-self: center; margin-left: 10px">
-            Repeat password
-        </div>
-        <div class="col-6">
-                <input type="password" placeholder="password" class="form-control" id="loginRepeatPasswordArea" minlength="8" required>
-        </div>
-    </div>
-
-    <div class="row" style="margin-top: 20px">
-        <div class="col-1" style="align-self: center; margin-left: 10px">
-            Avatar
-        </div>
-        <div class="col-6">
-                <input type="file" class="form-control" id="signinAvatarArea" />
-        </div>
-
-    </div>
-
-    <div class="row" style="margin-top: 30px; margin-left: 90px">
-        <button type="submit" class="btn  btn-outline-success" style="margin-left: 30px; width: 150px" href={% url "index" %}>Register</a>
-    </div>
-
-
 
 {% endblock content_min %}

@@ -3,13 +3,13 @@
 {% block content %}
 <div>
     <h2 style="display: inline-block; margin: 15px" class="mt-5 index-header">Questions</h2>
-    <a href="hot">Hot Questions</a>
+    <a href="hot">Hot Questions!</a>
 </div>
 
-{% for question in page_obj %}
+{% for post in content %}
 {% include "inc/question_element.html" %}
 {% endfor %}
 
-{% include "inc/paginator.html" with page=posts %}
+{% include "inc/paginator.html"%}
 
 {% endblock content %}
